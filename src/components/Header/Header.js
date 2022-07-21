@@ -86,8 +86,10 @@ const MainHeader = styled(MaxWidthWrapper)`
   height: 98px;
 
   @media ${QUERIES.laptopAndUp} {
-    justify-content: space-between;
-    margin-top: 16px;
+    align-items: revert;
+    justify-content: revert;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
   }
 `
 
@@ -105,10 +107,11 @@ const ActionGroupRight = styled(ActionGroup)`
   display: none;
 
   @media ${QUERIES.laptopAndUp} {
-    align-self: flex-end;
+    justify-self: end;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     padding-bottom: 8px;
     gap: 4px;
 
