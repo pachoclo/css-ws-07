@@ -1,9 +1,10 @@
-import React from 'react';
-import { Twitter, Facebook } from 'react-feather';
-import styled from 'styled-components/macro';
-import MaxWidthWrapper from '../MaxWidthWrapper';
+import React from 'react'
+import { Twitter, Facebook } from 'react-feather'
+import styled from 'styled-components/macro'
+import { QUERIES } from '../../constants'
+import MaxWidthWrapper from '../MaxWidthWrapper'
 
-import VisuallyHidden from '../VisuallyHidden';
+import VisuallyHidden from '../VisuallyHidden'
 
 const Footer = () => {
   return (
@@ -25,15 +26,11 @@ const Footer = () => {
           </nav>
           <Social>
             <a href="/">
-              <VisuallyHidden>
-                Visit The Grid Times on Facebook
-              </VisuallyHidden>
+              <VisuallyHidden>Visit The Grid Times on Facebook</VisuallyHidden>
               <Facebook size={20} />
             </a>
             <a href="/">
-              <VisuallyHidden>
-                Visit The Grid Times on Twitter
-              </VisuallyHidden>
+              <VisuallyHidden>Visit The Grid Times on Twitter</VisuallyHidden>
               <Twitter size={20} />
             </a>
           </Social>
@@ -119,21 +116,19 @@ const Footer = () => {
         <MaxWidthWrapper>
           <Subfooter>
             <Logo href="/">New Grid Times</Logo>
-            <Disclaimer>
-              © 2021 Fake Company Ltd. All Rights Reserved
-            </Disclaimer>
+            <Disclaimer>© 2021 Fake Company Ltd. All Rights Reserved</Disclaimer>
           </Subfooter>
         </MaxWidthWrapper>
       </SubfooterWrapper>
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.footer`
   color: var(--color-white);
   background: var(--color-gray-900);
   font-family: var(--font-family-sans-serif);
-`;
+`
 
 const TopRow = styled.div`
   display: flex;
@@ -144,7 +139,16 @@ const TopRow = styled.div`
   font-size: 0.875rem;
   border-bottom: 1px solid var(--color-gray-700);
   padding: 24px 0;
-`;
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    justify-content: flex-end;
+  }
+`
 
 const Social = styled.div`
   display: flex;
@@ -157,12 +161,12 @@ const Social = styled.div`
   path {
     stroke-width: 1.5px;
   }
-`;
+`
 
 const TopNavList = styled.ul`
   display: flex;
   gap: 16px;
-`;
+`
 
 const MainNavArea = styled.div`
   display: flex;
@@ -170,44 +174,44 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
-`;
+`
 
 const MainNavHeading = styled.h2`
   font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-gray-300);
   margin-bottom: 8px;
-`;
+`
 
 const MainNavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 4px;
-`;
+`
 
 const SubfooterWrapper = styled.div`
   background: var(--color-offblack);
   padding: 8px 0px;
   /* Optical alignment */
   padding-bottom: 16px;
-`;
+`
 
 const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 const Logo = styled.a`
   font-family: var(--font-family-logo);
   font-size: 2rem;
   color: var(--color-gray-100);
-`;
+`
 
 const Disclaimer = styled.p`
   margin-top: -4px;
   font-size: 0.875rem;
   color: var(--color-gray-500);
-`;
+`
 
-export default Footer;
+export default Footer
