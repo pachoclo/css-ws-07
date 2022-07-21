@@ -200,6 +200,10 @@ const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${QUERIES.laptopAndUp} {
+    align-items: flex-start;
+  }
 `
 
 const Logo = styled.a`
