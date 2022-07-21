@@ -1,11 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from 'react'
+import styled from 'styled-components/macro'
 
-import { MARKET_DATA, SPORTS_STORIES } from '../../data';
+import { MARKET_DATA, SPORTS_STORIES } from '../../data'
 
-import MarketCard from '../MarketCard';
-import SectionTitle from '../SectionTitle';
-import MiniStory from '../MiniStory';
+import MarketCard from '../MarketCard'
+import SectionTitle from '../SectionTitle'
+import MiniStory from '../MiniStory'
+import { QUERIES } from '../../constants'
 
 const SpecialtyStoryGrid = () => {
   return (
@@ -25,6 +26,7 @@ const SpecialtyStoryGrid = () => {
           ))}
         </MarketCards>
       </MarketsSection>
+
       <SportsSection>
         <SectionTitle
           cornerLink={{
@@ -41,20 +43,55 @@ const SpecialtyStoryGrid = () => {
         </SportsStories>
       </SportsSection>
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
   gap: 48px;
-`;
 
-const MarketsSection = styled.section``;
+  @media ${QUERIES.laptopAndUp} {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
 
-const MarketCards = styled.div``;
+    & > :first-of-type {
+      padding-right: 16px;
+      border-right: 1px solid var(--color-gray-300);
+    }
 
-const SportsSection = styled.section``;
+    & > :last-of-type {
+      padding-left: 16px;
+    }
+  }
+`
 
-const SportsStories = styled.div``;
+const MarketsSection = styled.section``
 
-export default SpecialtyStoryGrid;
+const MarketCards = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+`
+
+const SportsSection = styled.section`
+  display: grid;
+  overflow: auto;
+`
+
+const SportsStories = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
+  gap: 16px;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: flex;
+    & > a {
+      min-width: 220px;
+    }
+  }
+`
+
+export default SpecialtyStoryGrid
