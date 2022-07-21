@@ -41,7 +41,7 @@ const MobileHeader = () => {
         <Logo />
         <ActionGroupRight>
           <Button>Subscribe</Button>
-          <button>Already a subscriber?</button>
+          <SubLink href="#">Already a subscriber?</SubLink>
         </ActionGroupRight>
       </MainHeader>
     </header>
@@ -83,10 +83,17 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
-  height: 98px;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 48px;
+    margin-bottom: 72px;
+  }
 
   @media ${QUERIES.laptopAndUp} {
-    justify-content: space-between;
+    align-items: revert;
+    justify-content: revert;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     margin-top: 16px;
   }
 `
@@ -105,21 +112,21 @@ const ActionGroupRight = styled(ActionGroup)`
   display: none;
 
   @media ${QUERIES.laptopAndUp} {
-    align-self: flex-end;
+    justify-self: end;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 8px;
-    gap: 4px;
-
-    & button:nth-of-type(2) {
-      text-decoration: underline;
-      font-size: var(--color-gray-900);
-      font-weight: 400;
-      font-style: italic;
-      font-size: 14px;
-    }
+    justify-content: flex-end;
+    /* padding-bottom: 8px; */
+    gap: 8px;
   }
+`
+const SubLink = styled.a`
+  text-decoration: underline;
+  font-size: var(--color-gray-900);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 14px;
 `
 
 export default MobileHeader

@@ -83,7 +83,7 @@ const SportsSection = styled.section`
 const SportsStories = styled.div`
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
 
   @media ${QUERIES.tabletAndUp} {
