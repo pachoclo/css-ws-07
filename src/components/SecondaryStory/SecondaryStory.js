@@ -54,11 +54,13 @@ const Abstract = styled.p`
   grid-area: abstract;
   font-size: 1rem;
   white-space: pre-wrap;
+
+  /* clamping */
   overflow: hidden;
-  height: fit-content;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  height: fit-content;
 `
 
 export default SecondaryStory
