@@ -38,14 +38,20 @@ const Abstract = styled.p`
   font-size: 1rem;
   margin-bottom: 1em;
   white-space: pre-wrap;
-  overflow: hidden;
+  margin-bottom: 1em;
+
+  /* clamping */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 8;
-  margin-bottom: 1em;
+  overflow: hidden;
 
   @media ${QUERIES.tabletOnly} {
     -webkit-line-clamp: 16;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    -webkit-line-clamp: 10;
   }
 `
 
